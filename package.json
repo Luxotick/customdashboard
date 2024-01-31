@@ -1,5 +1,5 @@
 {
-  "name": "besiktasboard",
+  "name": "caelumboard",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
@@ -12,6 +12,7 @@
     "electron": "^26.1.0"
   },
   "dependencies": {
-    "ntcore-ts-client": "^0.2.1"
+    "ntcore-ts-client": "^0.2.1",
+    "wolfbyte-networktables": "^1.7.3"
   }
 }

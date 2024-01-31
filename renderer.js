@@ -12,29 +12,25 @@ function onload() {
     socket.addEventListener("message", (event) => {
         try {
             const data = JSON.parse(event.data);
-            if(data.networkTables === "Not Connected") {
-                const networkTables = document.getElementById("NetworkTables")
+            const networkTables = document.getElementById("NetworkTables")
+            if (data.networkTables === "Not Connected") {
                 networkTables.textContent = "NetworkTables Not Connected"; //or there is no data to display on table: /Besiktas
                 networkTables.classList.add('fade-in');
-            } else if(data.networkTables === "Connected") {
-                const networkTables = document.getElementById("NetworkTables")
+            } else if (data.networkTables === "Connected") {
                 networkTables.textContent = "NetworkTables Connected";
                 networkTables.classList.remove('fade-in');
             }
             if (data.hasOwnProperty("key")) {
-                if(document.getElementById(data.key)) {
-                    document.getElementById(data.key).textContent = `${data.key}, Value: ${data.value}`;
+                if (document.getElementById(data.key)) {
+                    document.getElementById(data.key).textContent = `${data.key.split("/Besiktas/")[1]}\n Value: ${data.value}`;
                 } else {
-                const key = data.key;
-                const value = data.value;
-                let div = document.createElement("div");
-                div.textContent = `${data.key}, Value: ${data.value}`;
-                div.classList.add('divler');
-                div.id = data.key;
-                document.body.appendChild(div);
+                    let div = document.createElement("div");
+                    div.textContent = `${data.key.split("/Besiktas/")[1]}\n Value: ${data.value}`;
+                    div.classList.add('divler');
+                    div.id = data.key;
+                    document.getElementById("gridcontainer").appendChild(div)
                 }
             }
-        } catch (error) {
-        }
+        } catch (error) {}
     });
 }

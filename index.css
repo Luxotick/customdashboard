@@ -19,7 +19,7 @@
     background-color: transparent;
     color: aliceblue;
     z-index: 1;
-    
+    white-space: pre;
 }
 
 video {
@@ -55,10 +55,31 @@ video {
   .fade-in {
     animation: fade 2s infinite;
   }
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+    background-color: #3f3f3f;
+    padding: 10px;
+  }
+  .grid-container > div {
+    background-color: rgb(255, 255, 255);
+    color: #000;
+
+    text-align: center;
+    padding: 20px 0;
+    font-size: 15px;
+  }
 
   @keyframes fade {
     0%,100% { opacity: 0 }
     50% { opacity: 1 }
+  }
+
+
+  table, td {
+    border: 1px solid;
+    color: white;
   }
 
 @keyframes color-change {
